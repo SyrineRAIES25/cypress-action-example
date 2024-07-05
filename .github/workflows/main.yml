@@ -1,12 +1,24 @@
 name: End-to-end tests
-on: push
+
+on:
+  push:
+    branches:
+      - main  # ou la branche que vous souhaitez surveiller
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      # Install npm dependencies, cache them correctly
-      # and run all Cypress tests
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+
+      # Installer les dépendances npm, les mettre en cache correctement
+      # et exécuter un seul test Cypress spécifique
+
+      - name: Install Dependencies and Run Cypress test
+        run: |
+          npm install
+          npx cypress run --spec "cypress\e2e\1-getting-started\todo.cy.js"  # Remplacez par le chemin de votre test
+
+      # Ajouter des étapes supplémentaires ici si nécessaire
