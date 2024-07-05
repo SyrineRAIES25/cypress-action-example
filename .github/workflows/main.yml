@@ -17,4 +17,4 @@ jobs:
       - name: Install Dependencies and Run Cypress test
         run: |
           npm install
-          npx cypress run --spec "cypress\e2e\1-getting-started\todo.cy.js"
+          run --spec "cypress\e2e\1-getting-started\todo.cy.js"
